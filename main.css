@@ -15,3 +15,22 @@ p {
   font-size: 14px;
   font-family: Arial
 }
+.unit-details-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial;
+  font-size: 14px;
+}
+
+.unit-details-table tr:first-child td {
+  font-weight: 600;
+}
+
+.unit-details-table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.unit-details-table tr:last-child td {
+  border-bottom: none;
+}
