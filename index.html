@@ -1,10 +1,419 @@
 <!DOCTYPE html>
-<html>
+<html class="light" lang="en">
 <head>
-<title> Home </title>
-<link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Deakin University - Shape a future that matters</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "on-background": "#191c1b",
+                      "on-surface": "#191c1b",
+                      "surface-container-low": "#f3f4f1",
+                      "on-primary-fixed": "#002114",
+                      "on-secondary-container": "#5a6560",
+                      "background": "#f9faf7",
+                      "surface": "#f9faf7",
+                      "primary": "#005f41",
+                      "on-secondary-fixed-variant": "#3f4944",
+                      "surface-container-highest": "#e2e3e0",
+                      "surface-dim": "#d9dad8",
+                      "on-tertiary-container": "#ffeacb",
+                      "secondary-fixed-dim": "#bec9c3",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f0f1ee",
+                      "surface-variant": "#e2e3e0",
+                      "secondary": "#56615c",
+                      "tertiary-container": "#8c6400",
+                      "on-tertiary-fixed-variant": "#5e4200",
+                      "inverse-primary": "#7bd9ad",
+                      "primary-fixed-dim": "#7bd9ad",
+                      "surface-container": "#edeeeb",
+                      "on-surface-variant": "#3e4943",
+                      "surface-bright": "#f9faf7",
+                      "outline-variant": "#bdc9c1",
+                      "outline": "#6e7a72",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#f8bd45",
+                      "on-tertiary-fixed": "#271900",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#141e1a",
+                      "inverse-surface": "#2e312f",
+                      "surface-tint": "#006c4a",
+                      "on-primary-fixed-variant": "#005137",
+                      "primary-container": "#087a55",
+                      "secondary-fixed": "#dae5de",
+                      "tertiary": "#6d4d00",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed": "#ffdea7",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e7e8e6",
+                      "on-error": "#ffffff",
+                      "primary-fixed": "#97f5c8",
+                      "on-primary-container": "#a5ffd3",
+                      "secondary-container": "#d7e2dc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-lg": "48px",
+                      "stack-sm": "12px",
+                      "container-max": "1280px",
+                      "stack-md": "24px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "base": "8px",
+                      "margin-desktop": "48px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "display-lg-mobile": ["Public Sans"],
+                      "display-lg": ["Public Sans"],
+                      "body-md": ["Public Sans"],
+                      "headline-sm": ["Public Sans"],
+                      "label-caps": ["Public Sans"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        .soft-shadow {
+            box-shadow: 0px 4px 20px rgba(23, 33, 29, 0.05);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
 </head>
-<body>
-<h1>SIT223-SIT753 - Professional Practice in IT</h1>
+<body class="bg-background text-on-background font-body-lg antialiased">
+    <div id="root"></div>
+
+    <!-- React and Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/history@5/umd/history.development.js"></script>
+    <script src="https://unpkg.com/react-router@6.3.0/umd/react-router.development.js"></script>
+    <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { createRoot } = ReactDOM;
+        const { MemoryRouter, Routes, Route, Link, useNavigate } = ReactRouterDOM;
+
+        // --- Shared Components ---
+
+        const TopUtilityBar = () => (
+            <div class="bg-on-primary-fixed-variant text-on-primary py-2 px-margin-desktop hidden md:block">
+                <div class="max-w-container-max mx-auto flex justify-end items-center gap-6">
+                    <nav class="flex gap-6 font-label-caps text-label-caps">
+                        <a class="hover:text-primary-fixed-dim transition-colors" href="#">Students</a>
+                        <a class="hover:text-primary-fixed-dim transition-colors" href="#">Staff</a>
+                        <a class="hover:text-primary-fixed-dim transition-colors" href="#">Library</a>
+                        <a class="hover:text-primary-fixed-dim transition-colors" href="#">International</a>
+                        <a class="hover:text-primary-fixed-dim transition-colors" href="#">Contact</a>
+                    </nav>
+                    <button aria-label="Search" class="flex items-center justify-center w-8 h-8 rounded-full hover:bg-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">search</span>
+                    </button>
+                </div>
+            </div>
+        );
+
+        const Header = () => (
+            <header class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container docked full-width top-0 z-50 sticky">
+                <div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+                    <Link to="/" class="font-display-lg text-display-lg font-bold text-on-primary tracking-tight leading-none">
+                        <img alt="Deakin University" class="h-10 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFTEG8dBsLq4zLd5vUR_P7Egfydo-ZGPlTHUC1UxzVj6MzIQ-EaGaB6xXBoE1OuE4zv2EZrncv8aFGMHZ_WcDDY8MJbT79qvMunp0uvioYtNkefJRe42ZC39TF_i4yuXnBhkfhvcJoC3FJpiCR2EbVOtcCl8eChDOGGz0BV4G9fRxU3sBfHPiICDw99lzqsqeyD6-RrGdtsliMZTSN6Rg67i8Gd9S-tFUU6kGvjs4UBLObz44t63HuRWpHsE-dQCMTVw"/>
+                    </Link>
+                    <nav class="hidden lg:flex items-center gap-8">
+                        <a class="font-label-caps text-label-caps text-on-primary/80 font-medium hover:text-on-primary hover:opacity-100 transition-opacity" href="#">Study</a>
+                        <a class="font-label-caps text-label-caps text-on-primary/80 font-medium hover:text-on-primary hover:opacity-100 transition-opacity" href="#">Courses</a>
+                        <a class="font-label-caps text-label-caps text-on-primary/80 font-medium hover:text-on-primary hover:opacity-100 transition-opacity" href="#">Research</a>
+                        <a class="font-label-caps text-label-caps text-on-primary/80 font-medium hover:text-on-primary hover:opacity-100 transition-opacity" href="#">International</a>
+                        <a class="font-label-caps text-label-caps text-on-primary/80 font-medium hover:text-on-primary hover:opacity-100 transition-opacity" href="#">About Deakin</a>
+                    </nav>
+                    <div class="flex items-center gap-4">
+                        <Link to="/portals" class="hidden md:flex font-label-caps text-label-caps text-on-primary hover:text-primary-fixed-dim transition-colors items-center gap-2">
+                            <span class="material-symbols-outlined text-[20px]">login</span> Portals
+                        </Link>
+                        <button class="font-label-caps text-label-caps bg-surface-container-lowest text-primary px-6 py-3 rounded-lg font-bold hover:bg-surface-variant transition-colors">
+                            Apply now
+                        </button>
+                        <button aria-label="Menu" class="lg:hidden flex items-center justify-center text-on-primary">
+                            <span class="material-symbols-outlined text-3xl">menu</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+        );
+
+        const Footer = () => (
+            <footer class="bg-surface-container-highest dark:bg-inverse-surface full-width bottom border-t border-outline-variant dark:border-outline">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-stack-lg max-w-container-max mx-auto text-on-surface dark:text-inverse-on-surface font-body-md text-body-md">
+                    <div class="col-span-1 md:col-span-4 mb-8">
+                        <div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed mb-4">
+                            <img alt="Deakin University" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDch46hPk6A3VgdnCuuCp0ziNSkLC-l3HXG9svIRNX0qL0XdwoRDGUpO3A1BjNGXPg4vyQuS3jQ8IgtbHW8b8AkcZ7lhR-CfjApv9Nj9Td6oCLsCKAqZPNADj8F0Qwf9V2DAG3Wl9Rh0U6roC1dc4Ro7HQQewhiIOz3zqB1YtnhhqewZX29lcDI4mYuF-2-lxee5ovP9ZV_2gmVRzLdDERnk_1jB9-E2NikARq1S-RcQghoSf8aa7npjKys8DchXo5qHw"/>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-label-caps text-label-caps font-bold mb-4 text-on-surface-variant dark:text-surface-variant uppercase">Explore</h4>
+                        <ul class="space-y-3">
+                            <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-colors duration-200" href="#">Study</a></li>
+                            <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-colors duration-200" href="#">Research</a></li>
+                            <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-colors duration-200" href="#">About Deakin</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-label-caps text-label-caps font-bold mb-4 text-on-surface-variant dark:text-surface-variant uppercase">Connect</h4>
+                        <ul class="space-y-3">
+                            <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-colors duration-200" href="#">International Students</a></li>
+                            <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-colors duration-200" href="#">Alumni</a></li>
+                            <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-colors duration-200" href="#">Give to Deakin</a></li>
+                            <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-colors duration-200" href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-label-caps text-label-caps font-bold mb-4 text-on-surface-variant dark:text-surface-variant uppercase">Legal</h4>
+                        <ul class="space-y-3">
+                            <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-colors duration-200" href="#">Privacy</a></li>
+                            <li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-colors duration-200" href="#">Terms of Use</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-outline-variant/30 text-sm text-on-surface-variant/80">
+                        <p class="mb-2">© 2024 Deakin University. CRICOS Provider Code: 00113B.</p>
+                        <p>Deakin University acknowledges the Traditional Custodians of the lands on which we live and work.</p>
+                    </div>
+                </div>
+            </footer>
+        );
+
+        // --- Screen 1: Home Page ---
+
+        const HomePage = () => {
+            return (
+                <div className="flex flex-col min-h-screen">
+                    <TopUtilityBar />
+                    <Header />
+                    
+                    {/* Hero Section */}
+                    <section class="relative w-full min-h-[600px] lg:min-h-[700px] flex items-center bg-surface-variant overflow-hidden">
+                        <div class="absolute inset-0 z-0">
+                            <div class="bg-cover bg-center w-full h-full" style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCV9oHbjKal05Gy9R03TsEa198sqy8dHKFBChu97N8j3FaAgjdRzCBjfRObk_QINyAO2SG9Nxfw5UGoGcQtixpFmbu1Qffk6h0nkWrbuyhSBdcY_Ngnzs-FQHWXjhceLWiaDZiznISEdZjwkb63E2fpRG0qgl7DAVstkRnldAjkjb6j_yR2UBLrialZqlYplkXYy-sTieftuarsaJb4d-9Nz9Lf4m3NhpBdczB1IOsMQjJ265noDyBQ')"}}></div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-on-primary-fixed-variant/90 via-on-primary-fixed-variant/70 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop py-stack-lg">
+                            <div class="max-w-3xl">
+                                <h1 class="font-display-lg text-display-lg text-on-primary mb-6 drop-shadow-md">
+                                    Shape a future that matters
+                                </h1>
+                                <p class="font-body-lg text-body-lg text-on-primary/90 mb-8 max-w-lg">
+                                    Join Australia's most progressive university. Gain real-world experience, learn from industry experts, and prepare for the careers of tomorrow.
+                                </p>
+                                <div class="flex flex-wrap gap-4 mb-12">
+                                    <button class="font-label-caps text-label-caps bg-primary-fixed text-on-primary-fixed px-8 py-4 rounded-lg hover:bg-primary-fixed-dim transition-colors shadow-lg">
+                                        Explore courses
+                                    </button>
+                                    <button class="font-label-caps text-label-caps bg-transparent border-2 border-on-primary text-on-primary px-8 py-4 rounded-lg hover:bg-on-primary/10 transition-colors">
+                                        Book a tour
+                                    </button>
+                                </div>
+                                <div class="w-full bg-surface-container-lowest p-6 rounded-xl shadow-2xl flex flex-col md:flex-row items-center gap-4">
+                                    <div class="flex-1 relative w-full">
+                                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-tertiary-fixed-dim font-bold">search</span>
+                                        <input class="w-full bg-surface text-on-surface font-body-md py-3 pl-12 pr-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-on-surface-variant/60" placeholder="Search courses, study areas or careers" type="text"/>
+                                    </div>
+                                    <div class="w-full md:w-48">
+                                        <select class="w-full bg-surface text-on-surface font-body-md py-3 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary appearance-none">
+                                            <option value="">Study level</option>
+                                            <option value="ug">Undergraduate</option>
+                                            <option value="pg">Postgraduate</option>
+                                        </select>
+                                    </div>
+                                    <div class="w-full md:w-48">
+                                        <select class="w-full bg-surface text-on-surface font-body-md py-3 px-4 rounded-lg border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary appearance-none">
+                                            <option value="">Location</option>
+                                            <option value="melbourne">Melbourne</option>
+                                            <option value="geelong">Geelong</option>
+                                            <option value="warrnambool">Warrnambool</option>
+                                            <option value="online">Online</option>
+                                        </select>
+                                    </div>
+                                    <button class="w-full md:w-auto font-label-caps text-label-caps bg-tertiary-fixed-dim text-on-tertiary-fixed px-8 py-3 rounded-lg hover:bg-tertiary-fixed transition-colors flex items-center justify-center gap-2 font-bold shadow-md">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Quick Action Cards */}
+                    <section class="py-stack-lg px-margin-desktop bg-secondary-fixed/40">
+                        <div class="max-w-container-max mx-auto">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                                <QuickActionCard icon="menu_book" title="Find a course" desc="Browse our comprehensive range of degrees." />
+                                <QuickActionCard icon="edit_document" title="Apply now" desc="Start your application journey today." />
+                                <QuickActionCard icon="workspace_premium" title="Scholarships" desc="Discover financial support options." />
+                                <QuickActionCard icon="location_on" title="Visit a campus" desc="Experience our world-class facilities." />
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* News Section */}
+                    <section class="py-stack-lg px-margin-desktop bg-surface">
+                        <div class="max-w-container-max mx-auto">
+                            <h2 class="font-display-lg text-display-lg text-on-surface mb-8">Latest News</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                                <NewsCard 
+                                    img="https://lh3.googleusercontent.com/aida-public/AB6AXuBp6Ju0snV2Bnjyh542VKweBoRKmCJeqBnBofVdstAVktbP9wl7RInmI4qWtwrTFcpOGNWjHreU4uoZ725sVlX8K4Cr-OvvWOdPPPNchYDWHBQMnDLll26YGi3j_B6CNYmEQqbX2nA6VVa4LIzYhLQ2Js6EoO21h71URl6LJNLdhsI3GxwUTwLHrFfAd3EcfEP1Dj4dJZc-3IZTQgtITlvqgDFeDR5EWy4qbcrH32gTVNcfJeMZt3as"
+                                    title="Deakin research leads global sustainability efforts"
+                                />
+                                <NewsCard 
+                                    img="https://lh3.googleusercontent.com/aida-public/AB6AXuAKKrwZdL6xnhhAJVBFV6C9P5V_ZXXFpn0worv5utFO_j1GCG2KK3jmnlh9Aqkr4iZfeTKNegyvB-T8A1gwpYlxLBuO9IRyYrR8sF5ZiKAEjyYPmV-VFXZgs_bUjZ7onypKfjJO6aheCyyRfeBjZ_qRVO8cQ39Dw97G9q7z7UJ06rx9Lb66Fyo72c3MlXbLm0tgQk-6TmfM_7HZkz2Kq31tymyoo5Aq_EXYNPX2y_nlQ0t1Za-PBN2_"
+                                    title="New state-of-the-art campus facilities open in Geelong"
+                                />
+                                <NewsCard 
+                                    img="https://lh3.googleusercontent.com/aida-public/AB6AXuAxYg4T2RJvSo00abmCmSvsALxzQ1w4-6YyE3iL_1vI-Glg2e_sXF5tnTHXqJvJzNL2HW7pzw2fX93HXMf12wMhzwyv9Y-xrQWdQQlyZEC896s0i-h3TNPWll-uZcsFn8NGEeUTDakhJJNMHbdjDmy8SpGZEWBZjei-aqCvWuMtXnltSjhJbsKCBFh5kb4pJyOX948P5Jb-jBGODkmzTSvF0Q36SDi4SXCmacqkR77w3VynmjN1sAdk"
+                                    title="Record number of international students welcomed for Trimester 1"
+                                />
+                            </div>
+                        </div>
+                    </section>
+
+                    <Footer />
+                </div>
+            );
+        };
+
+        const QuickActionCard = ({ icon, title, desc }) => (
+            <a class="group block bg-surface-container-lowest rounded-xl p-6 border border-outline-variant hover:border-tertiary-fixed-dim soft-shadow transition-all hover:-translate-y-1" href="#">
+                <div class="w-12 h-12 bg-tertiary-fixed rounded-full flex items-center justify-center text-tertiary mb-4 group-hover:bg-tertiary-fixed-dim transition-colors">
+                    <span class="material-symbols-outlined">{icon}</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">{title}</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-4">{desc}</p>
+                <div class="flex items-center text-tertiary font-label-caps text-label-caps group-hover:underline font-bold">
+                    Explore <span class="material-symbols-outlined ml-1 text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                </div>
+            </a>
+        );
+
+        const NewsCard = ({ img, title }) => (
+            <article class="flex flex-col group cursor-pointer bg-surface-container-lowest rounded-xl overflow-hidden soft-shadow border border-outline-variant hover:border-primary transition-all hover:-translate-y-1">
+                <div class="aspect-[16/10] w-full bg-surface-variant overflow-hidden">
+                    <img alt={title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={img}/>
+                </div>
+                <div class="p-6 flex flex-col flex-1">
+                    <h3 class="font-headline-sm text-headline-sm text-on-surface mb-4 group-hover:text-primary transition-colors line-clamp-2">{title}</h3>
+                    <a class="mt-auto font-label-caps text-label-caps text-tertiary flex items-center font-bold hover:underline w-fit" href="#">
+                        Read more <span class="material-symbols-outlined ml-1 text-[16px]">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+        );
+
+        // --- Screen 2: Portal Selection Page ---
+
+        const PortalSelectionPage = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="flex flex-col min-h-screen bg-surface">
+                    <header class="w-full bg-surface-container-lowest border-b border-outline-variant py-4 px-margin-mobile md:px-margin-desktop flex justify-center items-center">
+                        <div class="max-w-container-max w-full flex justify-between items-center">
+                            <Link to="/">
+                                <img alt="Deakin University Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXF-E36stuMNWNszNQbEPkdc6Z1k_jnjjjejrczJ__AlZy4zDD3q66aXaqllXKSXmbQ6gc7YPusf2mZ5hGnmyDi03FTuJn4F6crNzitf8TWRSFrCFJGrtxz8QzO4gek1aykns3LPoY7lTUeXqleUquBMHuF-MiTVN-0ijMhivIIBnk6CLq80n4RofdSXn4K1I3UJKmyaFpbaLpiHRfabucRl1TDzjpUY3ZTpTcsh2xpiL9zrQAxJnIYvG-jkm52Z-uUg"/>
+                            </Link>
+                            <button onClick={() => navigate(-1)} className="text-primary flex items-center gap-2 font-label-caps text-label-caps hover:underline">
+                                <span className="material-symbols-outlined">arrow_back</span> Back
+                            </button>
+                        </div>
+                    </header>
+
+                    <main class="flex-grow flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop py-stack-lg">
+                        <div class="max-w-container-max w-full flex flex-col items-center">
+                            <div class="text-center mb-stack-lg max-w-2xl mx-auto">
+                                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-sm">Select your portal to log in</h1>
+                                <p class="font-body-lg text-body-lg text-on-surface-variant">Choose the appropriate portal to access your personalized resources and university systems.</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter w-full max-w-5xl mx-auto">
+                                <PortalCard icon="school" title="Student Portal" desc="Access your timetable, units, and results." />
+                                <PortalCard icon="menu_book" title="Faculty Portal" desc="Teaching resources and academic systems." />
+                                <PortalCard icon="work" title="Staff Portal" desc="Workplace services and university systems." />
+                            </div>
+
+                            <div class="mt-stack-lg w-full max-w-5xl rounded-xl overflow-hidden flat-shadow relative h-64 md:h-80 shadow-lg">
+                                <div class="bg-cover bg-center w-full h-full absolute inset-0" style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCkOKGYkgqg_kSEPPmaqwFOPqit5u0yrjyxt23Kxl3H_x-LcNReY5Cp8w_CzVge0ijLKy5lZSwrf54Q8NevRXnCaXLQbL1Vm1MnkDQ-KQK9eIZTJR17zIAyL2o-QM-g-3HtMvQW8wwOz2CeIV-JmehnuiL8FjyAILp5rF3a21z-xWGixoCwh_IUHoVmcMEvrK7PDSHchHrDMONeygEtPj-ANBLpePo3anZ4eWzE9w1cX7ltJK5tFmL6')"}}></div>
+                                <div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+                                <div class="absolute bottom-0 left-0 p-gutter w-full bg-gradient-to-t from-on-background/80 to-transparent">
+                                    <p class="text-on-primary font-headline-sm text-headline-sm">Progressive education for a digital future.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <Footer />
+                </div>
+            );
+        };
+
+        const PortalCard = ({ icon, title, desc }) => (
+            <div class="bg-surface-container-lowest rounded-xl shadow-md border-t-4 border-t-primary p-gutter flex flex-col items-start transition-transform hover:-translate-y-1 hover:shadow-lg duration-300">
+                <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-stack-sm text-primary">
+                    <span class="material-symbols-outlined text-3xl" style={{fontVariationSettings: "'FILL' 1"}}> {icon} </span>
+                </div>
+                <h2 class="font-headline-sm text-headline-sm text-on-surface mb-2">{title}</h2>
+                <p class="text-on-surface-variant flex-grow mb-stack-md">{desc}</p>
+                <button class="w-full bg-primary hover:bg-primary/90 text-on-primary font-label-caps text-label-caps py-3 px-6 rounded transition-colors duration-200">
+                    LOGIN
+                </button>
+            </div>
+        );
+
+        // --- App Component ---
+
+        const App = () => {
+            return (
+                <MemoryRouter>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/portals" element={<PortalSelectionPage />} />
+                    </Routes>
+                </MemoryRouter>
+            );
+        };
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
