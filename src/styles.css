@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        .soft-shadow {
+            box-shadow: 0px 4px 20px rgba(23, 33, 29, 0.05);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        /* TASK-08: visible keyboard focus indicator for all interactive elements.
+           Uses the existing tertiary-fixed-dim gold from the design tokens so it
+           reads clearly against both the dark green header and light page backgrounds. */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        [role="button"]:focus-visible {
+            outline: 3px solid #f8bd45;
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+        /* No layout shift; only visibility for keyboard users (mouse/touch users unaffected) */
+        a:focus:not(:focus-visible),
+        button:focus:not(:focus-visible),
+        input:focus:not(:focus-visible),
+        select:focus:not(:focus-visible) {
+            outline: none;
+        }
+        @media (max-width: 767px) {
+            /* B/A: prevent any accidental horizontal scroll on small screens */
+            html, body {
+                overflow-x: hidden;
+            }
+        }
